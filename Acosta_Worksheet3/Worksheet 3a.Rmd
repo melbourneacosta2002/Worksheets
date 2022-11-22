@@ -1,0 +1,102 @@
+---
+title: "Worksheet 3a"
+author: "ACOSTA, MELBOURNE  BSIT2A"
+date: "2022-11-22"
+output: pdf_document
+---
+1)
+a.
+```{r , include=TRUE}
+LETTERS[1:11]
+```
+b.
+```{r , include=TRUE}
+letters[1:26 %% 2!= 0]
+```
+c.
+```{r , include=TRUE}
+vowels <- LETTERS [c(1,5,9,15,21)]
+vowels
+```
+d.
+```{r , include=TRUE}
+letters[21:26]
+```
+e.
+```{r , include=TRUE}
+letters[15:24]
+```
+2)
+a.
+```{r , include=TRUE}
+city <- c("Tuguegarao City","Manila","Iloilo City","Tacloban","Samal Island","Davao City")
+city
+```
+b.
+```{r , include=TRUE}
+temperature <- c(42,39,34,34,30,27)
+temperature
+```
+c.
+```{r , include=TRUE}
+names(temperature) <- city
+temperature 
+```
+e.
+```{r , include=TRUE}
+temperature[5:6] 
+```
+2)Matrices
+a.
+```{r , include=TRUE}
+m2 <- matrix(data = c(1:8,11:14),3,4)
+m2
+```
+b.
+```{r , include=TRUE}
+m2*2
+```
+c.
+```{r , include=TRUE}
+m2[2,]
+```
+d.
+```{r , include=TRUE}
+m2[c(1,2),c(3,4)]
+```
+e.
+```{r , include=TRUE}
+m2[c(3),c(2,3)]
+```
+f.
+```{r , include=TRUE}
+m2[,4]
+```
+g.
+```{r , include=TRUE}
+dimnames(m2) <- list(c("isa", "dalawa", "tatlo"),c("uno", "dos", "tres", "quatro"))
+m2
+
+```
+h.
+```{r , include=TRUE}
+dim(m2) <- c(6,2)
+m2
+```
+3)Arrays
+a.
+```{r , include=TRUE}
+arr <- c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1)
+arr
+```
+b.
+```{r , include=TRUE}
+value <- array(rep(arr, 2), dim = c(2,4,3))
+value
+
+```
+c.
+```{r , include=TRUE}
+dimnames(value) <- list(letters[1:2], LETTERS[1:4], c("1st-Dimensional Array", "2nd-Dimentional Array", "3rd-Dimensional Array"))
+value
+```
