@@ -1,0 +1,115 @@
+---
+title: "Acosta-Worksheet5"
+author: "ACOSTA, MELBOURNE  BSIT2A"
+date: "2022-12-11"
+output: pdf_document
+---
+
+```{r , include=TRUE}
+#1a
+
+library(ggplot2)
+df <- data.frame("course"=c("1st", "2nd", "3rd", "4th"), "sy"= c(80, 75, 70, 60))
+ggplot(df) + geom_col(aes(course, sy))
+
+sy <- c(80, 75, 70, 60)
+course <- c("1st", "2nd", "3rd", "4th")
+
+```
+
+```{r , include=TRUE}
+#b
+br <- barplot(sy, main= "Enrollment of BS Computer Science",
+              xlab = "Curriculum Year", ylab = "number of
+              students")
+```
+```{r , include=TRUE}
+#2a
+food <- 60
+electricity <- 10
+savings <- 5
+misc <- 25
+
+expenses <- data.frame(food, electricity, savings,misc)
+expenses
+```
+```{r , include=TRUE}
+#2B
+expense <- c(60, 10, 5, 25)
+pie(expense, main = "Expenses", col = rainbow(length(expense)),
+    labels = c("food", "electricity", "savings", "misc"))
+
+expense_label <- round(expense/sum(expense) * 100, 1)
+expense_label <- paste(expense_label, "%", sep = "")
+
+pie(expense, main = "Expenses", col = rainbow(length(expense)),
+    labels = expense_label, cex=0.8)
+legend(1, c("food", "electricity", "savings", "misc"),
+       cex = 0.8, fill = rainbow(length(expense)))
+```
+
+```{r , include=TRUE}
+#3
+data("mtcars")
+
+mt  <- mtcars$mpg
+
+hist(mt, main = "Histogram for mpg")
+```
+```{r , include=TRUE}
+#B
+hist(mt, breaks=12, col="red")
+```
+```{r , include=TRUE}
+#C
+
+h<-hist(mt, breaks=10, col="red", xlab="Miles Per Gallon",
+        main="Histogram with Normal Curve")
+xfit<-seq(min(mt),max(mt),length=40)
+yfit<-dnorm(xfit,mean=mean(mt),sd=sd(mt))
+yfit <- yfit*diff(h$mids[1:2])*length(mt)
+lines(xfit, yfit, col="blue", lwd=2)
+```
+```{r , include=TRUE}
+#D
+data("iris")
+
+data_a <- data.frame(iris)
+data_a
+
+a_data <- subset(data_a, Species == 'setosa')
+a_data
+
+data_b <- data.frame(iris)
+data_b
+b_data <- subset(data_b, Species == 'versicolor')
+b_data
+
+data_c <- data.frame(iris)
+data_c
+c_data <-subset(data_c, Species == 'virginica')
+c_data
+```
+```{r , include=TRUE}
+#4b
+setosa <- colMeans(a_data[sapply(a_data,is.numeric)])
+setosa
+
+versicolor <- colMeans(b_data[sapply(b_data,is.numeric)])
+versicolor
+
+virginica <- colMeans(c_data[sapply(c_data,is.numeric)])
+virginica
+```
+```{r , include=TRUE}
+#c
+sec <- rbind(setosa, versicolor, virginica)
+sec
+
+```
+```{r , include=TRUE}
+#D
+barplot(sec, beside =TRUE, main = "Iris Mean",
+        xlab = "Characterisics", ylab = "Mean Scores",
+        col = c("red", "green", "blue"))
+```
